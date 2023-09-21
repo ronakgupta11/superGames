@@ -12,6 +12,7 @@ import Root from './routes/root.jsx';
 import Pricing from './routes/pricing';
 import Games from './routes/games';
 import Bankpanic from './routes/bankpanic';
+import CardMemory from './routes/cardmemory';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/games/bankpanic",
         element:<Bankpanic/>,
+      },
+      {
+        path: "/games/cardmemory",
+        element:<CardMemory/>,
       },
     ],
   },
