@@ -12,7 +12,7 @@ export default function Nav() {
     >
       <Navbar.Brand
         
-        href="https://flowbite-react.com"
+        href="/"
       >
         
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
