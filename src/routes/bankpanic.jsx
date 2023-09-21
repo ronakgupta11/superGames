@@ -16,7 +16,7 @@ function Bankpanic() {
     setLoaded(true);
     const config = {
       type: Phaser.AUTO,
-      gameTitle: "P2E Bank Panic | Phaser x Moralis",
+      gameTitle: "P2E Bank Panic",
       parent: "game-container",
       autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
       autoFocus: true,
