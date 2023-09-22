@@ -11,11 +11,12 @@ import {
   arbitrum,
   base,
   zora,
+  baseGoerli
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
 export const { chains, publicClient,webSocketPublicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum, base, zora],
+  [mainnet, polygon, optimism, arbitrum, base, zora,baseGoerli],
   [
     
     publicProvider()

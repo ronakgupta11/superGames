@@ -32,23 +32,17 @@ export default function Nav() {
           Games
       </Link>
       
-      <Link to={"/about"}>
-
-          About
-      </Link>
+      
       
       <Link to={"/pricing"}>
 
           Pricing
       </Link>
-      
-        {/* </Navbar.Link> */}
+      <Link to={"/account"}>
 
-       
-        
-     
-        
-        
+          Profile
+      </Link>
+    
         
       </Navbar.Collapse>
     </Navbar>

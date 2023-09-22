@@ -13,6 +13,7 @@ import Pricing from './routes/pricing';
 import Games from './routes/games';
 import Bankpanic from './routes/bankpanic';
 import CardMemory from './routes/cardmemory';
+import Account from './routes/account';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/games",
         element:<Games/>,
+      },
+      {
+        path: "/account",
+        element:<Account/>,
       },
       {
         path: "/games/bankpanic",
