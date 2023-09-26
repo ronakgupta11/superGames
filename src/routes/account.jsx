@@ -3,17 +3,29 @@ import React,{useEffect, useState} from 'react'
 import { useAccount } from 'wagmi'
 import { Framework } from '@superfluid-finance/sdk-core'
 import { ethers } from 'ethers'
+import { Button, Spinner } from 'flowbite-react';
+import { Card } from 'flowbite-react';
+import {GiCancel} from "react-icons/gi"
+import { useContractRead } from 'wagmi'
+import { abi, address as contractAddress } from '../constants/constant'
 
 function Account() {
   const [result,setResult] = useState(null)
+  const [loading,setLoading] = useState(false)
+  const [user,setUser] = useState()
+  const {address} = useAccount()
+
+  const { data, isError, isLoading } = useContractRead({
+    address: contractAddress,
+    abi: abi,
+    functionName: 'getUserFromAddress',
+    args:[address]
+  })
 
   useEffect(()=>{
+    setLoading(true)
     const reciever = "0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"
-
-
     async function init(){
-
-
     const provider = new ethers.providers.JsonRpcProvider("https://goerli.base.org")
     console.log(provider)
 
@@ -30,33 +42,99 @@ function Account() {
 
     console.log(res);
     return res
-
-
-
-
   }
+  init().then(v=>{
+    setLoading(false)
+    setResult(v)
+    setUser(data)
+    console.log(data)
 
-
-  init().then(v=>setResult(v)).catch(e=>console.log(e))
-
-
+  }).catch(e=>
+      {setLoading(false)
+        console.log(e)})
   },[])
-  const {address} = useAccount()
   return (
-    <div className='flex flex-1 items-center justify-center flex-col space-y-4 m-8'>
-      <div>
+    <>
+ { loading ? <div className='text-center'>
+   <Spinner size={"xl"} />
+  </div>
+  :<div className='flex flex-1  justify-center flex-col space-y-4 m-8'>
+      <div className='font-semibold text-xl text-center'>
 
       {address?`Connected Wallet: ${address}`:<ConnectButton/>}
       </div>
+      {result?.flowRate != 0 ? <div className='font-semibold text-xl text-center text-[#4caf50]'>
+        Active Subscriber
+      </div>:<div className='font-semibold text-xl text-center text-[#f44336]'>
+        Unsubscribed
+      </div>}
       <div>
+      <p className='font-medium text-lg'>
+        Your Streams
+        </p>
+      <div>
+      <Card
+      className="w-4/5"
+      
+    >
+<div className='flex items-center justify-around'>
 
-      Your Streams
-      <div>
-      {result?`result:${result?.flowRate}- deposit : ${result?.deposit}`:"NOT INIT"}
+      <div className='w-3/5 space-y-2'>
+
+      <h5 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+       
+          To - 0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161
+        
+      </h5>
+      <div className="flex items-center justify-between font-medium text-gray-700 dark:text-gray-400">
+        <p>
+         FlowRate - {result?.flowRate}/month
+        </p>
+        <p>
+         Deposit - {result?.flowRate}
+        </p>
       </div>
       </div>
+      <div >
+      <GiCancel className='h-8 w-8' color='red'/>
+      </div>
+  
+</div>
+    </Card>
+      </div>
+      </div>
+      <div>
+        <p className='font-medium text-lg'>
+          Your Earnings
+        </p>
+        <div>
+      <Card
+      className="w-4/5"
+      
+    >
+<div className='flex items-center justify-around'>
 
-    </div>
+      
+
+      <h5 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+       
+          Amount Available - 0
+        
+      </h5>
+      <Button> Withdraw</Button>
+      
+  
+</div>
+    </Card>
+      </div>
+        <div>
+
+        </div>
+      </div>
+
+    </div>}
+    </>
+
   )
 }
 

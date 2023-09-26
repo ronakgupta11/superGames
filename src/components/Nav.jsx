@@ -10,14 +10,15 @@ export default function Nav() {
       fluid
       
     >
-      <Link to={"/"}
+    
+
+      <Link className='flex' to={"/"}>
+      <img
+          alt="Flowbite React Logo"
+          className=" h-24"
+          src='../assets/logo/logo.png'
+        />
         
-        
-      >
-        
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          SuperGames
-        </span>
       </Link>
       <div className="flex md:order-2">
       <ConnectButton/>

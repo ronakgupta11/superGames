@@ -17,6 +17,8 @@ import Account from './routes/account';
 import Movies from './routes/movies';
 import Home from './routes/index';
 import ErrorPage from './error-page';
+import MoviePage,{loader as movieLoader} from './routes/MoviePage';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +49,11 @@ const router = createBrowserRouter([
       {
         path: "/games/cardmemory",
         element:<CardMemory/>,
+      },
+      {
+        path: "/movies/:movieId",
+        element:<MoviePage/>,
+        loader:movieLoader,
       },
     ],
   },
