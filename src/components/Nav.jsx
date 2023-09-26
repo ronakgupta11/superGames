@@ -10,15 +10,15 @@ export default function Nav() {
       fluid
       
     >
-      <Navbar.Brand
+      <Link to={"/"}
         
-        href="/"
+        
       >
         
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           SuperGames
         </span>
-      </Navbar.Brand>
+      </Link>
       <div className="flex md:order-2">
       <ConnectButton/>
 
@@ -27,6 +27,10 @@ export default function Nav() {
       </div>
       {/* <Navbar.Toggle /> */}
       <Navbar.Collapse>
+      <Link to={"/movies"}>
+
+Movies
+</Link>
       <Link to={"/games"}>
 
           Games

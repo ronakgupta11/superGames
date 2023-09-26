@@ -14,11 +14,16 @@ import Games from './routes/games';
 import Bankpanic from './routes/bankpanic';
 import CardMemory from './routes/cardmemory';
 import Account from './routes/account';
+import Movies from './routes/movies';
+import Home from './routes/index';
+import ErrorPage from './error-page';
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root/>,
+    errorElement:<ErrorPage/>,
     children: [
+      {index:true,element:<Home/>},
       {
         path: "/pricing",
         element:<Pricing/>,
@@ -26,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/games",
         element:<Games/>,
+      },
+      {
+        path: "/movies",
+        element:<Movies/>,
       },
       {
         path: "/account",
