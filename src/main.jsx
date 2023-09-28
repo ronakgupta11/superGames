@@ -18,6 +18,9 @@ import Movies from './routes/movies';
 import Home from './routes/index';
 import ErrorPage from './error-page';
 import MoviePage,{loader as movieLoader} from './routes/MoviePage';
+import Streams from './routes/streams';
+import StreamPage from './routes/StreamPage';
+import {loader as streamLoader} from "./routes/StreamPage"
 
 const router = createBrowserRouter([
   {
@@ -54,6 +57,15 @@ const router = createBrowserRouter([
         path: "/movies/:movieId",
         element:<MoviePage/>,
         loader:movieLoader,
+      },
+      {
+        path: "/streams/:streamId",
+        element:<StreamPage/>,
+        loader:streamLoader,
+      },
+      {
+        path: "/streams",
+        element:<Streams/>,
       },
     ],
   },

@@ -1,14 +1,14 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
-import { useAsset } from '@livepeer/react';
+import { useStream } from '@livepeer/react';
 import { Player,Broadcast } from '@livepeer/react';
 export async function loader({params}){
-    const id = params.movieId
+    const id = params.streamId
     return {id}
 }
-function MoviePage() {
+function StreamPage() {
     const {id} =  useLoaderData();
-    const {data:asset,isError,error} = useAsset(id)
+    const {data:asset,isError,error} = useStream(id)
     console.log(asset)
   return (
     <div>
@@ -16,9 +16,7 @@ function MoviePage() {
         title={asset?.name}
         playbackId={asset?.playbackId}
        
-        muted
-        autoPlay
-        showPipButton
+        
         />
 
         
@@ -26,4 +24,4 @@ function MoviePage() {
   )
 }
 
-export default MoviePage
+export default StreamPage

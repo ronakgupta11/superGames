@@ -36,6 +36,10 @@ Movies
 
           Games
       </Link>
+      <Link to={"/streams"}>
+
+          Streams
+      </Link>
       
       
       
