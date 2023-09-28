@@ -40,7 +40,7 @@ function Movies() {
             <div className='flex flex-wrap items-center justify-center space-x-4 space-y-4'>
                 {data?.map((movie)=>{
                     return(
-                        <MovieCard Title ={movie.name} img = {movie.desc}  desc = {movie.img} link={`/movies/${movie.movieId}`} owner = {movie.Owner} plays = {Number(movie.plays)}/>
+                        <MovieCard Title ={movie.name} img = {movie.imageUri}  desc = {movie.desc} link={`/movies/${movie.movieId}`} owner = {movie.Owner} plays = {Number(movie.plays)}/>
                     )
                 })}
                 

@@ -84,7 +84,7 @@ function Account() {
  { loading ? <div className='text-center'>
    <Spinner size={"xl"} />
   </div>
-  :<div className='flex flex-1  justify-center flex-col space-y-4 m-8'>
+  :<div className='flex flex-1 justify-center items-center w-full flex-col space-y-4 m-8'>
       <div className='font-semibold text-xl text-center'>
 
       {address?`Connected Wallet: ${address}`:<ConnectButton/>}
@@ -95,13 +95,13 @@ function Account() {
       </div>:<div className='font-semibold text-xl text-center text-[#f44336]'>
         Unsubscribed
       </div>}
-{ user.isSubscriber &&  <div>
-      <p className='font-medium text-lg'>
+{ user.isSubscriber &&  <div className='w-full'>
+      <p className='font-medium text-lg text-center'>
         Your Streams
         </p>
-      <div>
+      <div className='w-full m-auto'>
       <Card
-      className="w-4/5"
+      className="w-3/5 m-auto"
       
     >
 <div className='flex items-center justify-around'>
@@ -129,14 +129,14 @@ function Account() {
 </div>
     </Card>
       </div>
-      </div>}
-      <div>
-        <p className='font-medium text-lg'>
+      </div >}
+      <div className='w-full '>
+        <p className='font-medium text-lg text-center'>
           Your Earnings
         </p>
-        <div>
+        <div className='w-full m-auto'>
       <Card
-      className="w-4/5"
+      className="w-3/5 m-auto"
       
     >
 <div className='flex items-center justify-around'>
