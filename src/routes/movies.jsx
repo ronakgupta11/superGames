@@ -21,30 +21,37 @@ function Movies() {
       })
     const [status,setStatus] = useState(false)
       useEffect(()=>{
-        if(user?.isSubscribed == true){
+        console.log(user)
+        if(user?.isSubscriber == true){
             setStatus(true)
         }
       },[user])
     
   return (
-    <div className='m-4 p-4 flex flex-1 items-start justify-between space-y-4 flex-col'>
+    <>
+    {status ? <div className='m-4 p-4 flex flex-1 items-start justify-between space-y-4 flex-col'>
         <div>
             <AddMovie/>
         </div>
         <div>
-            <div>
-                <p className='text-xl font-semibold'> Explore Movies</p>
+            <div className='m-2'>
+                <p className='text-3xl font-semibold'> Explore Movies</p>
             </div>
             <div className='flex flex-wrap items-center justify-center space-x-4 space-y-4'>
-                {data.map((movie)=>{
+                {data?.map((movie)=>{
                     return(
-                        <MovieCard Title ={movie.name} desc = {movie.desc} link={`/movies/${movie.movieId}`} owner = {movie.Owner} plays = {Number(movie.plays)}/>
+                        <MovieCard Title ={movie.name} img = {movie.desc}  desc = {movie.img} link={`/movies/${movie.movieId}`} owner = {movie.Owner} plays = {Number(movie.plays)}/>
                     )
                 })}
                 
             </div>
         </div>
-    </div>
+    </div>:<div>
+      Please subscribe To explore Movies</div>}
+    
+    
+    </>
+
   )
 }
 

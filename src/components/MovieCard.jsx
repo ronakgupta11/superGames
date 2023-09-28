@@ -6,7 +6,7 @@ function MovieCard(props) {
   return (
     <Link to={props.link}>
     <Card
-     className='w-[350px] h-[300px]'
+     
     imgAlt="movie banner"
     imgSrc={props.img}
   >

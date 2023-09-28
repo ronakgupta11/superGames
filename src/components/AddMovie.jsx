@@ -63,13 +63,13 @@ function AddMovie() {
             <div className="mb-2 block">
               <Label htmlFor="description" value="description" />
             </div>
-            <TextInput id="description" placeholder='Describe Your Content'required onChange={(e)=>setPoster(e.target.value)}/>
+            <TextInput id="description" placeholder='Describe Your Content'required onChange={(e)=>setDesc(e.target.value)}/>
           </div>
           <div>
             <div className="mb-2 block">
               <Label htmlFor="poster" value="Thumbnail" />
             </div>
-            <TextInput id="poster" placeholder='Enter Banner URI'required onChange={(e)=>setDesc(e.target.value)}/>
+            <TextInput id="poster" placeholder='Enter Banner URI'required onChange={(e)=>setPoster(e.target.value)}/>
           </div>
           <div>
             <div className="mb-2 block">

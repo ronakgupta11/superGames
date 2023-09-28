@@ -7,14 +7,14 @@ export default function SubcsriptionsCard(props) {
   return (
     <Card>
     <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
-      Standard plan
+      {props.plan}
     </h5>
     <div className="flex items-baseline text-gray-900 dark:text-white">
-      <span className="text-3xl font-semibold">
-        $
+      <span className="text-2xl font-semibold">
+        ETHx
       </span>
-      <span className="text-5xl font-extrabold tracking-tight">
-        49
+      <span className="text-3xl font-extrabold tracking-tight">
+        { props.price}
       </span>
       <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
         /month
@@ -24,53 +24,53 @@ export default function SubcsriptionsCard(props) {
       <li className="flex space-x-3">
         <BsCheckCircleFill/>
         <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-          2 team members
+          {props.item1}
         </span>
       </li>
       <li className="flex space-x-3">
       <BsCheckCircleFill/>
 
         <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-          20GB Cloud storage
+          {props.item2}
         </span>
       </li>
       <li className="flex space-x-3">
       <BsCheckCircleFill/>
 
         <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-          Integration help
+          {props.item3}
         </span>
       </li>
       <li className="flex space-x-3 line-through decoration-gray-500">
       <BsCheckCircleFill/>
 
         <span className="text-base font-normal leading-tight text-gray-500">
-          Sketch Files
+          {props.item4}
         </span>
       </li>
       <li className="flex space-x-3 line-through decoration-gray-500">
       <BsCheckCircleFill/>
 
         <span className="text-base font-normal leading-tight text-gray-500">
-          API Access
+          {props.item5}
         </span>
       </li>
       <li className="flex space-x-3 line-through decoration-gray-500">
       <BsCheckCircleFill/>
 
         <span className="text-base font-normal leading-tight text-gray-500">
-          Complete documentation
+          {props.item6}
         </span>
       </li>
       <li className="flex space-x-3 line-through decoration-gray-500">
       <BsCheckCircleFill/>
 
         <span className="text-base font-normal leading-tight text-gray-500">
-          24×7 phone & email support
+          {props.item7}
         </span>
       </li>
     </ul>
-    <SubscriptionPage/>
+    <SubscriptionPage price = {props.price}/>
   </Card>
     
   )

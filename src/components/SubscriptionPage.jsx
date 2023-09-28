@@ -5,9 +5,9 @@ import SuperfluidWidget from '@superfluid-finance/widget';
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { Button } from 'flowbite-react';
+import {address} from "../constants/constant"
 
-
-function SubscriptionPage() {
+function SubscriptionPage(props) {
  const data = {
   productDetails: {
     name: "SuperGames",
@@ -17,13 +17,13 @@ function SubscriptionPage() {
   paymentDetails: {
     paymentOptions: [
       {
-        receiverAddress: "0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161",
+        receiverAddress: address,
         chainId: 84531,
         superToken: {
           address: "0x7ffce315b2014546ba461d54eded7aac70df4f53"
         },
         flowRate: {
-          amountEther: "0.001",
+          amountEther: props.price,
           period: "month"
         }
       }

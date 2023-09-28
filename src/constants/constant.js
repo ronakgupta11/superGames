@@ -36,6 +36,11 @@ export const abi  = [
 			},
 			{
 				"internalType": "string",
+				"name": "_imageUri",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "_movieId",
 				"type": "string"
 			}
@@ -46,11 +51,198 @@ export const abi  = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_user",
+				"type": "address"
+			}
+		],
 		"name": "addUser",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ISuperToken",
+				"name": "superToken",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "agreementClass",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "agreementData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "ctx",
+				"type": "bytes"
+			}
+		],
+		"name": "afterAgreementCreated",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "newCtx",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ISuperToken",
+				"name": "superToken",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "agreementClass",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "agreementData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "cbdata",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "ctx",
+				"type": "bytes"
+			}
+		],
+		"name": "afterAgreementTerminated",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "newCtx",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ISuperToken",
+				"name": "superToken",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "agreementClass",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "agreementData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "cbdata",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "ctx",
+				"type": "bytes"
+			}
+		],
+		"name": "afterAgreementUpdated",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "newCtx",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_user",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "plan",
+				"type": "uint256"
+			}
+		],
+		"name": "changeUserSubscription",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ISuperToken",
+				"name": "acceptedToken",
+				"type": "address"
+			},
+			{
+				"internalType": "contract ISuperfluid",
+				"name": "_host",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_Registrar",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "NotAcceptedSuperToken",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "NotImplemented",
+		"type": "error"
 	},
 	{
 		"inputs": [
@@ -66,15 +258,178 @@ export const abi  = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "UnauthorizedHost",
+		"type": "error"
+	},
+	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_Registrar",
+				"internalType": "contract ISuperToken",
+				"name": "",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
 			}
 		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
+		"name": "beforeAgreementCreated",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ISuperToken",
+				"name": "superToken",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "agreementClass",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "agreementData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"name": "beforeAgreementTerminated",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ISuperToken",
+				"name": "superToken",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "agreementClass",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "agreementData",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"name": "beforeAgreementUpdated",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "CFAV1_TYPE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "flow1",
+		"outputs": [
+			{
+				"internalType": "int96",
+				"name": "",
+				"type": "int96"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "flow2",
+		"outputs": [
+			{
+				"internalType": "int96",
+				"name": "",
+				"type": "int96"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "flow3",
+		"outputs": [
+			{
+				"internalType": "int96",
+				"name": "",
+				"type": "int96"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -149,6 +504,11 @@ export const abi  = [
 					{
 						"internalType": "string",
 						"name": "desc",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "imageUri",
 						"type": "string"
 					},
 					{
@@ -262,6 +622,38 @@ export const abi  = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "HOST",
+		"outputs": [
+			{
+				"internalType": "contract ISuperfluid",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "contract ISuperToken",
+				"name": "superToken",
+				"type": "address"
+			}
+		],
+		"name": "isAcceptedSuperToken",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -279,6 +671,11 @@ export const abi  = [
 			{
 				"internalType": "string",
 				"name": "desc",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "imageUri",
 				"type": "string"
 			},
 			{
@@ -308,6 +705,25 @@ export const abi  = [
 				"internalType": "address",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "userExists",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -353,5 +769,4 @@ export const abi  = [
 		"type": "function"
 	}
 ]
-
-export const address = "0x3A9A5994DA05DD12F5811C19833c802cF46968d4"
+export const address = "0x75A27cDb22761DC1E82e55fa2B238ebc217a73fa"

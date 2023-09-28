@@ -11,24 +11,27 @@ import { abi, address as contractAddress } from '../constants/constant'
 
 
 function Account() {
-  const reciever = "0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"
+  const reciever = contractAddress
 
 
   const [result,setResult] = useState(null)
   const [loading,setLoading] = useState(false)
-  const [user,setUser] = useState()
+  // const [user,setUser] = useState()
   const {address} = useAccount()
 
-  const { data, isError, isLoading } = useContractRead({
+  const { data:user, isError, isLoading } = useContractRead({
     address: contractAddress,
     abi: abi,
     functionName: 'getUserFromAddress',
     args:[address]
   })
 
+
+
   useEffect(()=>{
     setLoading(true)
-    const reciever = "0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"
+
+    const reciever = contractAddress
     async function init(){
     // const provider = new ethers.providers.JsonRpcProvider("https://goerli.base.org")
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -45,19 +48,19 @@ function Account() {
       providerOrSigner: provider
     });
 
-    console.log(res);
+    // console.log(res);
     return res
   }
   init().then(v=>{
     setLoading(false)
     setResult(v)
-    setUser(data)
-    console.log(data)
+    // setUser(data)
+    // console.log(data)
 
   }).catch(e=>
       {setLoading(false)
         console.log(e)})
-  },[])
+  },[user])
 
 
   async function cancelStream(){
@@ -86,12 +89,13 @@ function Account() {
 
       {address?`Connected Wallet: ${address}`:<ConnectButton/>}
       </div>
-      {result?.flowRate != 0 ? <div className='font-semibold text-xl text-center text-[#4caf50]'>
-        Active Subscriber
+      {user?.isSubscriber ? <div className='font-semibold text-xl text-center text-[#4caf50]'>
+        Active Subscriber,
+        Subscription Plan: {Number(user.SubscriptionTier)}
       </div>:<div className='font-semibold text-xl text-center text-[#f44336]'>
         Unsubscribed
       </div>}
-      <div>
+{ user.isSubscriber &&  <div>
       <p className='font-medium text-lg'>
         Your Streams
         </p>
@@ -118,14 +122,14 @@ function Account() {
         </p>
       </div>
       </div>
-      <div onClick={cancelStream}>
+      <button onClick={cancelStream}>
       <GiCancel  className='h-8 w-8' color='red'/>
-      </div>
+      </button>
   
 </div>
     </Card>
       </div>
-      </div>
+      </div>}
       <div>
         <p className='font-medium text-lg'>
           Your Earnings
