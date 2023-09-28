@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AddMovie from '../components/AddMovie'
 import MovieCard from '../components/MovieCard'
 import { useContractRead } from 'wagmi'
-import { abi, address } from '../constants/constant'
-
+// import { abi, address } from '../constants/constant'
+import { abi, address as contractAddress } from '../constants/constant'
+import { useAccount } from 'wagmi'
 
 function Movies() {
+    const {address} = useAccount()
     const { data, isError, isLoading } = useContractRead({
-        address: address,
+        address: contractAddress,
         abi: abi,
         functionName: 'getMovies',
       })
+      const { data:user } = useContractRead({
+        address: contractAddress,
+        abi: abi,
+        functionName: 'getUserFromAddress',
+        args:[address]
+      })
+    const [status,setStatus] = useState(false)
+      useEffect(()=>{
+        if(user?.isSubscribed == true){
+            setStatus(true)
+        }
+      },[user])
     
   return (
     <div className='m-4 p-4 flex flex-1 items-start justify-between space-y-4 flex-col'>

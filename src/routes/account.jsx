@@ -9,7 +9,11 @@ import {GiCancel} from "react-icons/gi"
 import { useContractRead } from 'wagmi'
 import { abi, address as contractAddress } from '../constants/constant'
 
+
 function Account() {
+  const reciever = "0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"
+
+
   const [result,setResult] = useState(null)
   const [loading,setLoading] = useState(false)
   const [user,setUser] = useState()
@@ -26,8 +30,9 @@ function Account() {
     setLoading(true)
     const reciever = "0xD7D98e76FcD14689F05e7fc19BAC465eC0fF4161"
     async function init(){
-    const provider = new ethers.providers.JsonRpcProvider("https://goerli.base.org")
-    console.log(provider)
+    // const provider = new ethers.providers.JsonRpcProvider("https://goerli.base.org")
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+
 
     const sf = await Framework.create({
       chainId: 84531, //your chainId here
@@ -53,6 +58,24 @@ function Account() {
       {setLoading(false)
         console.log(e)})
   },[])
+
+
+  async function cancelStream(){
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const signer = provider.getSigner()
+    const sf = await Framework.create({
+      chainId: 84531, //your chainId here
+      provider:provider,
+    });
+    const ETHx = await sf.loadSuperToken("0x7ffce315b2014546ba461d54eded7aac70df4f53");
+
+    let flowOp = ETHx.deleteFlow({
+      sender: address,
+      receiver: reciever ,
+    });
+    
+    await flowOp.exec(signer );
+  }
   return (
     <>
  { loading ? <div className='text-center'>
@@ -95,8 +118,8 @@ function Account() {
         </p>
       </div>
       </div>
-      <div >
-      <GiCancel className='h-8 w-8' color='red'/>
+      <div onClick={cancelStream}>
+      <GiCancel  className='h-8 w-8' color='red'/>
       </div>
   
 </div>
