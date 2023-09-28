@@ -12,6 +12,7 @@ function MovieCard(props) {
      
     imgAlt="movie banner"
     imgSrc={props.img}
+    className=''
   >
     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       <p>
@@ -27,7 +28,7 @@ function MovieCard(props) {
       <p>{`${props.owner.slice(0,4)}....${props.owner.slice(-4)}`}</p>
       <p className='flex items-center'><BsPlay className='h-5 w-5'/> {props.plays}</p>
     </div>
-    <Button onClick = {()=>navigate(props.link)}> Play</Button>
+    <Button className='bg-blue-700 enabled:hover:bg-blue-800 focus:ring-blue-300'  onClick = {()=>navigate(props.link)}> Play</Button>
   </Card>
 
   )

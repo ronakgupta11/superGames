@@ -37,7 +37,7 @@ function SubscriptionPage(props) {
     palette: {
       mode: "light",
       primary: {
-        main: "#1DB227"
+        main: "#1a56db"
       },
       secondary: {
         main: "#fff"
@@ -90,7 +90,7 @@ function SubscriptionPage(props) {
           >
             {({ openModal }) => (
               <Button
-              className="inline-flex w-full justify-center rounded-lg bg-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900"
+              className='bg-blue-700 enabled:hover:bg-blue-800 focus:ring-blue-300'
       type="button"
               onClick={() => openModal()}>
                 <p>

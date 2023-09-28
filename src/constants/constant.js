@@ -41,6 +41,11 @@ export const abi  = [
 			},
 			{
 				"internalType": "string",
+				"name": "_cat",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "_movieId",
 				"type": "string"
 			}
@@ -513,6 +518,11 @@ export const abi  = [
 					},
 					{
 						"internalType": "string",
+						"name": "cat",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
 						"name": "movieId",
 						"type": "string"
 					},
@@ -680,6 +690,11 @@ export const abi  = [
 			},
 			{
 				"internalType": "string",
+				"name": "cat",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "movieId",
 				"type": "string"
 			},
@@ -769,4 +784,4 @@ export const abi  = [
 		"type": "function"
 	}
 ]
-export const address = "0x75A27cDb22761DC1E82e55fa2B238ebc217a73fa"
+export const address = "0xdD3007f84c25C62bE0D7C5F23C9E3aef4AeD7D95"

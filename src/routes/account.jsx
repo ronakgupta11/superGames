@@ -82,7 +82,7 @@ function Account() {
   return (
     <>
  { loading ? <div className='text-center'>
-   <Spinner size={"xl"} />
+   <Spinner  size={"xl"} />
   </div>
   :<div className='flex flex-1 justify-center items-center w-full flex-col space-y-4 m-8'>
       <div className='font-semibold text-xl text-center'>
@@ -148,7 +148,7 @@ function Account() {
           Amount Available - 0
         
       </h5>
-      <Button> Withdraw</Button>
+      <Button className='bg-blue-700 enabled:hover:bg-blue-800 focus:ring-blue-300'> Withdraw</Button>
       
   
 </div>
