@@ -105,7 +105,7 @@ function Account() {
       </div>:<div className='font-semibold text-xl text-center text-[#f44336]'>
         Unsubscribed
       </div>}
-{ user.isSubscriber &&  <div className='w-full'>
+{ user?.isSubscriber &&  <div className='w-full'>
       <p className='font-medium text-lg text-center'>
         Your Streams
         </p>
