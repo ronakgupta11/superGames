@@ -5,18 +5,13 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
-  zora,
+
   baseGoerli
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
 export const { chains, publicClient,webSocketPublicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum, base, zora,baseGoerli],
+  [baseGoerli],
   [
     
     publicProvider()

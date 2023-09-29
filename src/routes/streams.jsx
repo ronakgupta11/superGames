@@ -25,6 +25,9 @@ function Streams() {
   const [subscription,setSubscription] = useState(0)
 
       useEffect(()=>{
+        if(!address){
+          navigate("/account")
+        }
         setSubscription(Number(user?.SubscriptionTier))
         console.log(user)
         if(user?.isSubscriber == true){

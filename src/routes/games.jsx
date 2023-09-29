@@ -18,6 +18,9 @@ function Games() {
   })
   const [status,setStatus] = useState(false)
       useEffect(()=>{
+        if(!address){
+          navigate("/account")
+        }
         console.log(user)
         if(user?.isSubscriber == true){
             setStatus(true)

@@ -81,6 +81,16 @@ function Account() {
   }
   return (
     <>
+   {!address ? <div className='flex flex-1 items-center justify-center flex-col space-y-8'>
+      <p className='text-3xl font-bold text-gray-600'>
+        Please Connect Wallet To Continue
+        </p>
+      <div>
+        <ConnectButton/>
+      </div>
+      </div>:
+    <div>
+
  { loading ? <div className='text-center'>
    <Spinner  size={"xl"} />
   </div>
@@ -160,6 +170,8 @@ function Account() {
       </div>
 
     </div>}
+    </div>}
+
     </>
 
   )

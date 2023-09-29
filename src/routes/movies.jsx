@@ -25,6 +25,10 @@ function Movies() {
     const [status,setStatus] = useState(false)
     const [subscription,setSubscription] = useState(0)
       useEffect(()=>{
+        if(!address){
+          navigate("/account")
+
+        }
         console.log(Number(user.SubscriptionTier))
         setSubscription(Number(user?.SubscriptionTier))
         if(user?.isSubscriber == true){
@@ -56,11 +60,12 @@ function Movies() {
     
   return (
     <>
-    {status ? <div className='m-4 p-4 flex flex-1 items-start justify-between space-y-4 flex-col'>
-        <div className='flex items-center justify-between w-full'>
+    {/* {status ? */}
+     <div className='m-4 p-4 flex flex-1 items-start justify-between space-y-4 flex-col'>
+        {(subscription == 2 ) && <div className='flex items-center justify-between w-full'>
             <AddMovie/>
             <CreateStream/>
-        </div>
+        </div>}
 { (subscription == 0||subscription == 1||subscription ==2 )&&       <div>
             <div className='m-2'>
                 <p className='text-3xl font-semibold'> Explore Movies</p>
@@ -88,15 +93,15 @@ function Movies() {
                 
             </div>
         </div>}
-    </div>:<div className='flex flex-1 items-center justify-center flex-col space-y-8'>
-      <p className='text-3xl font-bold text-gray-600'>
-        Please subscribe To explore Movies
-        </p>
-      <div>
-<Button className='bg-blue-700 enabled:hover:bg-blue-800 focus:ring-blue-300' onClick={()=>navigate("/pricing")}> Subscribe Now</Button>
-      </div>
-      </div>}
-    
+    </div>
+{/* //     :<div className='flex flex-1 items-center justify-center flex-col space-y-8'>
+//     <p className='text-3xl font-bold text-gray-600'>
+//       Please subscribe To explore Movies
+//       </p>
+//     <div>
+// <Button className='bg-blue-700 enabled:hover:bg-blue-800 focus:ring-blue-300' onClick={()=>navigate("/pricing")}> Subscribe Now</Button>
+//     </div>
+//     </div>} */}
     
     </>
 
