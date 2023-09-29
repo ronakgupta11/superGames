@@ -101,7 +101,7 @@ function Account() {
       </div>
       {user?.isSubscriber ? <div className='font-semibold text-xl text-center text-[#4caf50]'>
         Active Subscriber,
-        Subscription Plan: {Number(user.SubscriptionTier)}
+        Subscription Plan: {(Number(user.SubscriptionTier)==1)?"Basic":"Premium"}
       </div>:<div className='font-semibold text-xl text-center text-[#f44336]'>
         Unsubscribed
       </div>}
@@ -125,7 +125,7 @@ function Account() {
       </h5>
       <div className="flex items-center justify-between font-medium text-gray-700 dark:text-gray-400">
         <p>
-         FlowRate - {result?.flowRate}/month
+         FlowRate - {result?.flowRate} wei/sec
         </p>
         <p>
          Deposit - {result?.flowRate}
