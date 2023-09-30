@@ -29,7 +29,7 @@ function Movies() {
           navigate("/account")
 
         }
-        console.log(Number(user.SubscriptionTier))
+
         setSubscription(Number(user?.SubscriptionTier))
         if(user?.isSubscriber == true){
             setStatus(true)
@@ -68,7 +68,7 @@ function Movies() {
         </div>}
 { (subscription == 0||subscription == 1||subscription ==2 )&&       <div>
             <div className='m-2'>
-                <p className='text-3xl font-semibold'> Explore Movies</p>
+                <p className='text-3xl font-semibold'> Free Movies</p>
             </div>
             <div className='flex flex-wrap items-center justify-center space-x-4 space-y-4'>
                 {FreeMoviesRendered}
